@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Device, DeviceWithGateway } from '../models';
+import { Device } from '../models';
 import { ClientConfig } from '../client-config';
 
 @Injectable({
@@ -11,9 +11,9 @@ export class DeviceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getDevices(): Observable<DeviceWithGateway[]> {
-    return this.httpClient.get<DeviceWithGateway[]>(
-      `${ClientConfig.baseUrl}/api/Device/GetAllWithInclude`);
+  getDevices(): Observable<Device[]> {
+    return this.httpClient.get<Device[]>(
+      `${ClientConfig.baseUrl}/api/Device/GetAll`);
   }
 
   deleteDevice(id: string): Observable<any> {

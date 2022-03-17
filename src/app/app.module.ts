@@ -12,11 +12,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { GatewayComponent } from './components/gateway/gateway.component';
 import { DeviceComponent } from './components/device/device.component';
+import { AddDeviceDialogComponent } from './components/add-device-dialog/add-device-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,8 @@ import { DeviceComponent } from './components/device/device.component';
     DashboardComponent,
     PageNotFoundComponent,
     GatewayComponent,
-    DeviceComponent
+    DeviceComponent,
+    AddDeviceDialogComponent
    ],
   imports: [
     BrowserModule,
@@ -36,9 +41,15 @@ import { DeviceComponent } from './components/device/device.component';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    MatInputModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpHeadersInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpHeadersInterceptor, multi: true },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false} }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
