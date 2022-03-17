@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a mat-icon-button [routerLink]="'/dashboard'">
+      <mat-icon>home</mat-icon>
+    </a>
+    <div class="headline">My App</div>
+    <div>
+      <a mat-button [routerLink]="'/gateways'"> Gateways </a>
+      <a mat-button [routerLink]="'/devices'"> Devices </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+
